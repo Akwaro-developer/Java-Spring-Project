@@ -1,5 +1,5 @@
 package com.example.myapp.controller;
-import com.example.myapp.controller.UserCreationParams;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class UserServiceImp implements UserService {
 
     private final Map<String, UserCreationParams> users = new HashMap<>();
@@ -23,6 +24,11 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    public List<UserCreationParams> getAllUsers() {
+        return new ArrayList<>(users.values());
+    }
+
+    @Override
     public String updateUser(String email, UserCreationParams updatedUser) {
         if (users.containsKey(email)) {
             users.put(email, updatedUser);
@@ -34,10 +40,5 @@ public class UserServiceImp implements UserService {
     @Override
     public String deleteUser(String email) {
         return users.remove(email) != null ? "User deleted successfully!" : "User not found!";
-    }
-
-    @Override
-    public List<UserCreationParams> getAllUsers() {
-        return new ArrayList<>(users.values());
     }
 }

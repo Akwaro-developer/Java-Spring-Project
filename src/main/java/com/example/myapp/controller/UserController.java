@@ -1,17 +1,16 @@
 package com.example.myapp.controller;
 
-import com.example.myapp.controller.UserCreationParams;
-import com.example.myapp.controller.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
-import java.util.Map;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
 
-    //
+    // Constructor injection (with @Autowired)
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
