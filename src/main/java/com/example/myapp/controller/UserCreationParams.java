@@ -8,8 +8,6 @@ public class UserCreationParams {
     private String password;
 
     // Constructors
-    public UserCreationParams() {
-    }
 
     public UserCreationParams(String name, String email, int age, String password) {
         this.name = name;
