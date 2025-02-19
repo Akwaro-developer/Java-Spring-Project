@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+//Another DTO used to send user data to the client without exposing sensitive information like password.
+//
+//Contains fields like name, email, and age.
 
 public class UserDto {
     private String name;
@@ -12,8 +15,7 @@ public class UserDto {
     private int age;
 
     // Constructors
-    public UserDto() {
-    }
+
 
     public UserDto(String name, String email, int age) {
         this.name = name;

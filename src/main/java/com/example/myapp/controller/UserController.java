@@ -1,9 +1,12 @@
 package com.example.myapp.controller;
 
+import com.example.myapp.controller.User;
+import com.example.myapp.controller.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
@@ -16,27 +19,27 @@ public class UserController {
     }
 
     @PostMapping
-    public String createUser(@RequestBody UserCreationParams user) {
+    public String createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
-    @GetMapping("/{email}")
-    public UserCreationParams getUser(@PathVariable String email) {
-        return userService.getUser(email);
+    @GetMapping("/{userId}")
+    public User getUser(@PathVariable UUID userId) {
+        return userService.getUser(userId);
     }
 
     @GetMapping
-    public List<UserCreationParams> getAllUsers() {
+    public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @PutMapping("/{email}")
-    public String updateUser(@PathVariable String email, @RequestBody UserCreationParams updatedUser) {
-        return userService.updateUser(email, updatedUser);
+    @PutMapping("/{userId}")
+    public String updateUser(@PathVariable UUID userId, @RequestBody User updatedUser) {
+        return userService.updateUser(userId, updatedUser);
     }
 
-    @DeleteMapping("/{email}")
-    public String deleteUser(@PathVariable String email) {
-        return userService.deleteUser(email);
+    @DeleteMapping("/{userId}")
+    public String deleteUser(@PathVariable UUID userId) {
+        return userService.deleteUser(userId);
     }
 }

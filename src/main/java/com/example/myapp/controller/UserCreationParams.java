@@ -1,5 +1,13 @@
 
 package com.example.myapp.controller;
+//UserCreationParams
+//A DTO (Data Transfer Object) used to transfer data between the client and the server.
+
+//Contains fields like name, email, age, and password.
+
+//Includes getters and setters for accessing and modifying the fields.
+
+//Also has a method toUserDto() to convert UserCreationParams to UserDto (excluding the password for security reasons).
 
 public class UserCreationParams {
     private String name;
